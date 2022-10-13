@@ -1,18 +1,16 @@
 import { Flex, Box, Text, Input, Button } from '@chakra-ui/react';
 import { useState } from 'react';
-import {
-  geocodeByAddress,
-  geocodeByPlaceId,
-  getLatLng,
-} from 'react-places-autocomplete';
+import { geocodeByAddress } from 'react-places-autocomplete';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 const CollapsedView = () => {
   const [address, setAddress] = useState('');
-  const [corrdinates, setCoordinates] = useState({
-    lat: null,
-    lng: null,
-  });
+
+  // UNCOMMENT WHEN READY TO USE LAT+LNG
+  // const [corrdinates, setCoordinates] = useState({
+  //   lat: null,
+  //   lng: null,
+  // });
 
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
