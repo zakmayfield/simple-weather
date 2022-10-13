@@ -1,4 +1,4 @@
-# Simple app to read local weather data
+# Simple app to read weather data
 
 ## Packages
 
