@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+
 .App {
   text-align: center;
 }
@@ -19,7 +24,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -36,3 +41,9 @@
     transform: rotate(360deg);
   }
 }
+
+/* .list {
+  position: absolute;
+  width: 50%;
+  z-index: 1;
+} */
