@@ -7,6 +7,7 @@
 ## API
 
 - `Google Places API`
+- `OpenWeather API`
 
 ## Formulas
 
