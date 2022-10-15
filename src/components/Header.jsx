@@ -1,7 +1,7 @@
 import { Flex, Box, Heading, Icon, Button } from '@chakra-ui/react';
 import { FaArrowLeft, FaCloudSun } from 'react-icons/fa';
 
-const Header = ({ isExpanded, setIsExpanded, isCelsius, setIsCelsius }) => {
+const Header = ({ isExpanded, setIsExpanded, tempType, setTempType }) => {
   return (
     <Flex
       p='2'
@@ -32,8 +32,8 @@ const Header = ({ isExpanded, setIsExpanded, isCelsius, setIsCelsius }) => {
       </Box>
 
       <Box flex='1'>
-        <Button onClick={() => setIsCelsius(!isCelsius)} variant='unstyled'>
-          {isCelsius ? 'C°' : 'F°'}
+        <Button onClick={() => setTempType(!tempType)} variant='unstyled'>
+          {tempType ? 'C°' : 'F°'}
         </Button>
       </Box>
     </Flex>

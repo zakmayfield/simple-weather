@@ -6,7 +6,9 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
     const coords = await getLatLng(results[0]);
+
     setAddress(results[0].formatted_address);
+
     setCoordinates({
       lat: coords.lat,
       lng: coords.lng,
@@ -25,13 +27,14 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
         value={address}
         onChange={setAddress}
         onSelect={handleSelect}
+        searchOptions={{ types: ['(cities)'] }}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <Box w='100%' position='relative'>
             <Input
               type='text'
               value={address}
-              {...getInputProps({ placeholder: 'Enter address' })}
+              {...getInputProps({ placeholder: 'City, State' })}
               variant='outline'
               w='100%'
             />
@@ -48,6 +51,7 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
                   <Box
                     textAlign='left'
                     fontSize='sm'
+                    p='2'
                     key={sug.placeId}
                     {...getSuggestionItemProps(sug, {
                       style,
