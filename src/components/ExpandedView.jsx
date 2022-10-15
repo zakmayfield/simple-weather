@@ -36,6 +36,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
     },
   ];
   const [tempConverted, setTempConverted] = useState(0);
+  const [feelsLike, setFeelsLike] = useState(0);
 
   useEffect(() => {
     convertKelvin(tempType);
@@ -46,10 +47,12 @@ const ExpandedView = ({ weather, address, tempType }) => {
       // Kelvin to Celsius formula
       // K - 273.15
       setTempConverted(Math.round(weather?.main.temp - 273.15));
+      setFeelsLike(Math.round(weather?.main.feels_like - 273.15));
     } else {
       // Kelvin to Fahrenheit
       // 9/5 (K - 273) + 32
       setTempConverted(Math.round((9 / 5) * (weather?.main.temp - 273) + 32));
+      setFeelsLike(Math.round((9 / 5) * (weather?.main.feels_like - 273) + 32));
     }
   };
 
@@ -76,7 +79,9 @@ const ExpandedView = ({ weather, address, tempType }) => {
         {address}
       </Box>
       <Box>
-        <Box>Feels Like</Box>
+        <Box>
+          Feels Like {feelsLike}° {tempType ? 'C' : 'F'}
+        </Box>
         <Box>{weather?.main?.humidity}% humidity</Box>
       </Box>
     </Flex>
