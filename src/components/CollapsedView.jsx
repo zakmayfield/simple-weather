@@ -1,4 +1,13 @@
-import { Flex, Box, Text, Input, Button, Icon } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Text,
+  Input,
+  Button,
+  Icon,
+  InputRightElement,
+  InputGroup,
+} from '@chakra-ui/react';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { useState } from 'react';
@@ -37,8 +46,6 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
     console.log('error', error);
   };
 
-
-
   return (
     <Flex
       h='100%'
@@ -55,17 +62,22 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <Box w='100%' position='relative'>
-            <Input
-              type='text'
-              value={address}
-              {...getInputProps({ placeholder: 'City, State' })}
-              variant='outline'
-              w='100%'
-              size='lg'
-            />
+            <InputGroup>
+              <Input
+                type='text'
+                value={address}
+                {...getInputProps({ placeholder: 'City, State' })}
+                variant='outline'
+                w='100%'
+                size='lg'
+              />
+              {loading && (
+                <InputRightElement mt='1' children={<Icon className='spinner-icon' as={FaSpinner} />} />
+              )}
+            </InputGroup>
 
             <Box position='absolute' w='100%' zIndex={1}>
-              {loading ? <div>...loading</div> : null}
+              {/* {loading ? <div>...loading</div> : null} */}
 
               {suggestions.map((sug) => {
                 const style = sug.active
