@@ -121,7 +121,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
       <Flex w='100%'>
         <Flex
           flex='1'
-          py='2'
+          py='3'
           flexDirection='column'
           borderTop='1px solid black'
           borderRight='1px solid black'
@@ -141,7 +141,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
 
         <Flex
           flex='1'
-          py='2'
+          py='3'
           flexDirection='column'
           borderTop='1px solid black'
           justifyContent='center'
