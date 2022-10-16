@@ -38,7 +38,7 @@ const Header = ({
       )}
 
       <Box flex='3'>
-        <Heading as='h1' fontWeight='medium' fontSize='lg'>
+        <Heading as='h1' fontWeight='bold' fontSize='lg'>
           Simple Weather
         </Heading>
       </Box>
