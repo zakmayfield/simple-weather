@@ -39,12 +39,12 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
               w='100%'
             />
 
-            <Box position='absolute' zIndex={1}>
+            <Box position='absolute' w='100%' zIndex={1}>
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map((sug) => {
                 const style = sug.active
-                  ? { backgroundColor: '#4bc2c5', cursor: 'pointer' }
+                  ? { backgroundColor: '#57b2e6', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
 
                 return (
