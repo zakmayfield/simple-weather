@@ -40,6 +40,8 @@
 ## Bugs
 
 - Warning coming from react that is telling me there is a missing dep array in WeatherContainer.jsx, I fixed the issue for this on a different useEffect by making the function it was referencing a useCallback instead
+
+  - *Note this is still an issue, except it wont be display because of an eslint ignore line i added*
 ---
 ## Ideas
 
