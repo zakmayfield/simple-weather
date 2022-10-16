@@ -4,9 +4,24 @@
 
 - `react-places-autocomplete`
 
+  - Autocomplete search input for google maps locations on a city level
+
+- `opencage-api-client`
+
+  - Geolocating Lat and Lng coordinates
+
+- `@chakra-ui/react`
+  - Styling
+- `axios`
+  - HTTP requests
+
 ## API
 
 - `Google Places API` \* consumed by the `react-places-autocomplete` library
+
+- Native `GeoLocation API`
+
+- `OpenCage Geocoding API`
 
 ## Formulas
 
@@ -19,13 +34,3 @@
 
 - K - 273.15
   - EX: `286.45 - 273.15 = 13.33C`
-
-### Flow
-
-- Typing the Input hits the Places API
-
-  - Places API gives us all locational data from their selection
-
-    -
-
-  - Location data can be achieved from this meaning if you search 'Norwood Ohio' then i can just take that data from places API and use it for the current location searched.

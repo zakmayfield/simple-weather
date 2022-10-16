@@ -1,7 +1,7 @@
 import { Flex, Box, Text, Input, Button, Icon } from '@chakra-ui/react';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import PlacesAutocomplete from 'react-places-autocomplete';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaSpinner } from 'react-icons/fa';
 
 const CollapsedView = ({ address, setAddress, setCoordinates }) => {
@@ -36,6 +36,8 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
     setFetchingLocation(false);
     console.log('error', error);
   };
+
+
 
   return (
     <Flex
@@ -88,7 +90,7 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
         )}
       </PlacesAutocomplete>
 
-      <Text fontSize='sm' my='2.5' fontWeight='medium' color='#00000080'>
+      <Text fontSize='sm' my='5' fontWeight='medium' color='#00000080'>
         - or -
       </Text>
 

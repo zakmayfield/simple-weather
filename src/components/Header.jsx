@@ -1,7 +1,19 @@
 import { Flex, Box, Heading, Icon, Button } from '@chakra-ui/react';
 import { FaArrowLeft, FaCloudSun } from 'react-icons/fa';
 
-const Header = ({ isExpanded, setIsExpanded, tempType, setTempType }) => {
+const Header = ({
+  isExpanded,
+  setIsExpanded,
+  tempType,
+  setTempType,
+  setAddress,
+  setGeoLocateAddress,
+}) => {
+  const handleCollapse = () => {
+    setAddress('');
+    setGeoLocateAddress('');
+    setIsExpanded(false);
+  };
   return (
     <Flex
       p='2'
@@ -14,7 +26,7 @@ const Header = ({ isExpanded, setIsExpanded, tempType, setTempType }) => {
     >
       {isExpanded && (
         <Box flex='1'>
-          <Button size='sm' variant='unstyled' onClick={() => setIsExpanded(false)}>
+          <Button size='sm' variant='unstyled' onClick={handleCollapse}>
             <Icon as={FaArrowLeft} />
           </Button>
         </Box>

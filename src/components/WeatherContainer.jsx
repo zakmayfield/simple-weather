@@ -4,6 +4,7 @@ import CollapsedView from './CollapsedView';
 import ExpandedView from './ExpandedView';
 import Header from './Header';
 import axios from 'axios';
+import opencage from 'opencage-api-client';
 
 const WeatherContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -12,10 +13,11 @@ const WeatherContainer = () => {
   const [tempType, setTempType] = useState(true);
 
   const [address, setAddress] = useState('');
+  const [geoLocateAddress, setGeoLocateAddress] = useState('');
 
   const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null,
+    lat: 0,
+    lng: 0,
   });
 
   const [currentWeatherData, setCurrentWeatherData] = useState({});
@@ -37,8 +39,27 @@ const WeatherContainer = () => {
   }, [coordinates]);
 
   useEffect(() => {
-    console.log('coords', coordinates);
+    callOpenCage(coordinates.lat, coordinates.lng);
   }, [coordinates]);
+
+  const callOpenCage = (lat, lon) => {
+    opencage
+      .geocode({
+        q: `${lat}, ${lon}`,
+        key: '4cf0f5f55bd7487e935f15ca4c209938',
+      })
+      .then((data) => {
+        if (data.results[0].formatted !== 'Null Island') {
+          console.log('data->', data);
+          if (!address) {
+            setGeoLocateAddress(data.results[0].formatted);
+          }
+        }
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+  };
 
   return (
     <Flex
@@ -55,6 +76,8 @@ const WeatherContainer = () => {
         setIsExpanded={setIsExpanded}
         tempType={tempType}
         setTempType={setTempType}
+        setAddress={setAddress}
+        setGeoLocateAddress={setGeoLocateAddress}
       />
       {!isExpanded && (
         <CollapsedView
@@ -63,11 +86,12 @@ const WeatherContainer = () => {
           setCoordinates={setCoordinates}
         />
       )}
-      {isExpanded && currentWeatherData && (
+      {isExpanded && currentWeatherData && (address || geoLocateAddress) && (
         <ExpandedView
           weather={currentWeatherData}
           address={address}
           tempType={tempType}
+          geoLocateAddress={geoLocateAddress}
         />
       )}
     </Flex>

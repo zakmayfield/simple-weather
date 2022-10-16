@@ -13,7 +13,7 @@ import snow from '../assets/snow.png';
 import thunderstorm from '../assets/thunderstorm.png';
 import atmosphere from '../assets/atmosphere.png';
 
-const ExpandedView = ({ weather, address, tempType }) => {
+const ExpandedView = ({ weather, address, tempType, geoLocateAddress }) => {
   const weatherCodes = [
     {
       code: 'Thunderstorm',
@@ -72,6 +72,8 @@ const ExpandedView = ({ weather, address, tempType }) => {
     }
   };
 
+  if (!weather) return;
+
   return (
     <Flex
       h='100%'
@@ -109,7 +111,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
       <Flex alignItems='center' justifyContent='center' w='100%' px='5'>
         <Icon mr='2' as={FaMapMarkerAlt} />
         <Text fontSize='md' id='address-display'>
-          {address ? address : 'Current location'}
+          {address && !geoLocateAddress ? address : geoLocateAddress}
         </Text>
       </Flex>
 
