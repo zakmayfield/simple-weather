@@ -8,18 +8,22 @@ import clouds from '../assets/clouds.png';
 import clear from '../assets/clear.png';
 import thermometer from '../assets/thermometer.png';
 import humidity from '../assets/humidity.png';
+import drizzle from '../assets/drizzle.png';
+import snow from '../assets/snow.png';
+import thunderstorm from '../assets/thunderstorm.png';
+import atmosphere from '../assets/atmosphere.png';
 
 const ExpandedView = ({ weather, address, tempType }) => {
   const weatherCodes = [
     {
       code: 'Thunderstorm',
       icon: <Icon as={RiThunderstormsFill} />,
-      imgSrc: '',
+      imgSrc: thunderstorm,
     },
     {
       code: 'Drizzle',
       icon: <Icon as={RiDrizzleFill} />,
-      imgSrc: '',
+      imgSrc: drizzle,
     },
     {
       code: 'Rain',
@@ -29,12 +33,12 @@ const ExpandedView = ({ weather, address, tempType }) => {
     {
       code: 'Snow',
       icon: <Icon as={IoIosSnow} />,
-      imgSrc: '',
+      imgSrc: snow,
     },
     {
       code: 'Atmosphere',
       icon: <Icon />,
-      imgSrc: '',
+      imgSrc: atmosphere,
     },
     {
       code: 'Clear',
@@ -80,6 +84,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
       justifyContent='space-between'
       alignItems='center'
     >
+      {/* WEATHER CONDITION IMAGE */}
       <Flex w='100%' justifyContent='center' p='5'>
         {weatherCodes.map((code) => {
           if (code.code === weather.weather[0].main) {
@@ -102,12 +107,12 @@ const ExpandedView = ({ weather, address, tempType }) => {
       </Box>
 
       {/* WEATHER CONDITION */}
-      <Box>{weather.weather[0].main}</Box>
+      <Box textTransform='capitalize'>{weather.weather[0].description}</Box>
 
       {/* LOCATION */}
       <Flex alignItems='center' justifyContent='center' w='100%' px='5'>
         <Icon mr='2' as={FaMapMarkerAlt} />
-        <Text fontSize='lg' id='address-display'>
+        <Text fontSize='md' id='address-display'>
           {address}
         </Text>
       </Flex>
