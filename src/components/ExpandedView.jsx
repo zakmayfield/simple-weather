@@ -88,19 +88,6 @@ const ExpandedView = ({ weather, address, tempType, geoLocateAddress }) => {
     >
       {/* WEATHER CONDITION IMAGE */}
       <Flex w='100%' justifyContent='center' p='5'>
-        {/* {weatherCodes.map((code) => {
-          if (code.code === weather.weather[0].main) {
-            return (
-              <Image
-                key={code.code}
-                boxSize='150px'
-                src={code.imgSrc}
-                alt={`${code.code} weather`}
-              />
-            );
-          }
-        })} */}
-
         {weatherCodes.map(
           (code) =>
             code.code === weather.weather[0].main && (
