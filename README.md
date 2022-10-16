@@ -61,8 +61,9 @@
 
   - Create a dropdown for recent searches (or rather a use last searched option)
 
+--
+
 - Smooth opening of the extended box
 
   - Animate the transition from collapsed to expanded and vise versa
 
-  
