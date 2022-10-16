@@ -72,11 +72,6 @@ const ExpandedView = ({ weather, address, tempType }) => {
     }
   };
 
-  useEffect(() => {
-    console.log('temp converted ->', tempConverted);
-  }, [tempConverted]);
-
-  console.log('weather ->', weather);
   return (
     <Flex
       h='100%'
@@ -90,6 +85,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
           if (code.code === weather.weather[0].main) {
             return (
               <Image
+                key={code.code}
                 boxSize='150px'
                 src={code.imgSrc}
                 alt={`${code.code} weather`}
@@ -113,7 +109,7 @@ const ExpandedView = ({ weather, address, tempType }) => {
       <Flex alignItems='center' justifyContent='center' w='100%' px='5'>
         <Icon mr='2' as={FaMapMarkerAlt} />
         <Text fontSize='md' id='address-display'>
-          {address}
+          {address ? address : 'Current location'}
         </Text>
       </Flex>
 

@@ -36,6 +36,10 @@ const WeatherContainer = () => {
     }
   }, [coordinates]);
 
+  useEffect(() => {
+    console.log('coords', coordinates);
+  }, [coordinates]);
+
   return (
     <Flex
       w={{ base: '400px' }}

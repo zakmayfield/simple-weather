@@ -1,8 +1,12 @@
-import { Flex, Box, Text, Input, Button } from '@chakra-ui/react';
+import { Flex, Box, Text, Input, Button, Icon } from '@chakra-ui/react';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import PlacesAutocomplete from 'react-places-autocomplete';
+import { useEffect, useState } from 'react';
+import { FaSpinner } from 'react-icons/fa';
 
 const CollapsedView = ({ address, setAddress, setCoordinates }) => {
+  const [fetchingLocation, setFetchingLocation] = useState(null);
+
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
     const coords = await getLatLng(results[0]);
@@ -13,6 +17,24 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
       lat: coords.lat,
       lng: coords.lng,
     });
+  };
+
+  const geoLocate = () => {
+    setFetchingLocation(true);
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  };
+
+  const successCallback = (position) => {
+    setCoordinates({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
+    setFetchingLocation(false);
+  };
+
+  const errorCallback = (error) => {
+    setFetchingLocation(false);
+    console.log('error', error);
   };
 
   return (
@@ -70,8 +92,14 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
         - or -
       </Text>
 
-      <Button colorScheme='twitter' w='full'>
-        Locate Me
+      <Button
+        onClick={geoLocate}
+        colorScheme='twitter'
+        w='full'
+        disabled={fetchingLocation}
+      >
+        {!fetchingLocation && 'Locate Me'}
+        {fetchingLocation && <Icon className='spinner-icon' as={FaSpinner} />}
       </Button>
     </Flex>
   );
