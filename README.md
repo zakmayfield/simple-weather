@@ -37,6 +37,12 @@
 - K - 273.15
   - EX: `286.45 - 273.15 = 13.33C`
 ---
+## Want to change
+
+- Size of the map marker is a bit too big, should be around same size as text
+
+- Need to have more margin above the footer, or under the address w/ map marker
+---
 ## Bugs
 
 - Warning coming from react that is telling me there is a missing dep array in WeatherContainer.jsx, I fixed the issue for this on a different useEffect by making the function it was referencing a useCallback instead
