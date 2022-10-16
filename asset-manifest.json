@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/simple-weather/static/css/main.32efe5cd.css",
+    "main.js": "/simple-weather/static/js/main.28da2664.js",
+    "static/js/787.2f3fbad7.chunk.js": "/simple-weather/static/js/787.2f3fbad7.chunk.js",
+    "static/media/snow.png": "/simple-weather/static/media/snow.a1bab4977c6b746bbe1b.png",
+    "static/media/thermometer.png": "/simple-weather/static/media/thermometer.2de553afebf49adca5ae.png",
+    "static/media/humidity.png": "/simple-weather/static/media/humidity.e1ebb62f39b783d0e086.png",
+    "static/media/thunderstorm.png": "/simple-weather/static/media/thunderstorm.aa36e530c4c6a1fda208.png",
+    "static/media/atmosphere.png": "/simple-weather/static/media/atmosphere.c9c1c2b9e9752e301223.png",
+    "static/media/clouds.png": "/simple-weather/static/media/clouds.3aba5b1decbf0f0b5f41.png",
+    "static/media/drizzle.png": "/simple-weather/static/media/drizzle.1c0430176071095b6ca1.png",
+    "static/media/rain.png": "/simple-weather/static/media/rain.88ccad0b0f66d2aa734c.png",
+    "static/media/clear.png": "/simple-weather/static/media/clear.2810660fdb90edb92ce7.png",
+    "index.html": "/simple-weather/index.html",
+    "main.32efe5cd.css.map": "/simple-weather/static/css/main.32efe5cd.css.map",
+    "main.28da2664.js.map": "/simple-weather/static/js/main.28da2664.js.map",
+    "787.2f3fbad7.chunk.js.map": "/simple-weather/static/js/787.2f3fbad7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32efe5cd.css",
+    "static/js/main.28da2664.js"
+  ]
+}
