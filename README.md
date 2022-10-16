@@ -14,7 +14,7 @@
   - Styling
 - `axios`
   - HTTP requests
-
+---
 ## API
 
 - `OpenWeather API`
@@ -24,7 +24,7 @@
 - Native `GeoLocation API`
 
 - `OpenCage Geocoding API`
-
+---
 ## Formulas
 
 `Kelvin -> F`
@@ -36,18 +36,15 @@
 
 - K - 273.15
   - EX: `286.45 - 273.15 = 13.33C`
+---
+## Bugs
 
-
+- Warning coming from react that is telling me there is a missing dep array in WeatherContainer.jsx, I fixed the issue for this on a different useEffect by making the function it was referencing a useCallback instead
+---
 ## Ideas
 
-- Search History
-
-  - Create a dropdown for recent searches (or rather a use last searched option)
-
---
-
 - Persisting users Degrees selection
-  
+
   - Create a custom useLocalStorage hook to persist the C/F selection.
 
 --
@@ -56,8 +53,16 @@
 
   - This should be pretty similar to the local storage hook, create a toggle that gets added to local storage when selecting which style you want to see
 
---
+
+---
+## STRETCH GOALS
+
+- Search History
+
+  - Create a dropdown for recent searches (or rather a use last searched option)
 
 - Smooth opening of the extended box
 
   - Animate the transition from collapsed to expanded and vise versa
+
+  
