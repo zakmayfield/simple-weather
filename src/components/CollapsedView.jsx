@@ -61,6 +61,7 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
               {...getInputProps({ placeholder: 'City, State' })}
               variant='outline'
               w='100%'
+              size='lg'
             />
 
             <Box position='absolute' w='100%' zIndex={1}>
@@ -98,6 +99,7 @@ const CollapsedView = ({ address, setAddress, setCoordinates }) => {
         onClick={geoLocate}
         colorScheme='twitter'
         w='full'
+        size='lg'
         disabled={fetchingLocation}
       >
         {!fetchingLocation && 'Locate Me'}

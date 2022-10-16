@@ -1,5 +1,5 @@
 import { Flex, Box, Icon, Image, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoIosSunny, IoIosCloudy, IoIosSnow, IoIosRainy } from 'react-icons/io';
 import { RiDrizzleFill, RiThunderstormsFill } from 'react-icons/ri';
@@ -54,23 +54,28 @@ const ExpandedView = ({ weather, address, tempType, geoLocateAddress }) => {
   const [tempConverted, setTempConverted] = useState(0);
   const [feelsLike, setFeelsLike] = useState(0);
 
+  const convertKelvin = useCallback(
+    (tempType) => {
+      if (tempType && weather) {
+        // Kelvin to Celsius formula
+        // K - 273.15
+        setTempConverted(Math.round(weather?.main.temp - 273.15));
+        setFeelsLike(Math.round(weather?.main.feels_like - 273.15));
+      } else {
+        // Kelvin to Fahrenheit
+        // 9/5 (K - 273) + 32
+        setTempConverted(Math.round((9 / 5) * (weather?.main.temp - 273) + 32));
+        setFeelsLike(
+          Math.round((9 / 5) * (weather?.main.feels_like - 273) + 32)
+        );
+      }
+    },
+    [weather]
+  );
+
   useEffect(() => {
     convertKelvin(tempType);
-  }, [tempType]);
-
-  const convertKelvin = (tempType) => {
-    if (tempType && weather) {
-      // Kelvin to Celsius formula
-      // K - 273.15
-      setTempConverted(Math.round(weather?.main.temp - 273.15));
-      setFeelsLike(Math.round(weather?.main.feels_like - 273.15));
-    } else {
-      // Kelvin to Fahrenheit
-      // 9/5 (K - 273) + 32
-      setTempConverted(Math.round((9 / 5) * (weather?.main.temp - 273) + 32));
-      setFeelsLike(Math.round((9 / 5) * (weather?.main.feels_like - 273) + 32));
-    }
-  };
+  }, [tempType, convertKelvin]);
 
   if (!weather) return;
 
@@ -83,7 +88,7 @@ const ExpandedView = ({ weather, address, tempType, geoLocateAddress }) => {
     >
       {/* WEATHER CONDITION IMAGE */}
       <Flex w='100%' justifyContent='center' p='5'>
-        {weatherCodes.map((code) => {
+        {/* {weatherCodes.map((code) => {
           if (code.code === weather.weather[0].main) {
             return (
               <Image
@@ -94,7 +99,19 @@ const ExpandedView = ({ weather, address, tempType, geoLocateAddress }) => {
               />
             );
           }
-        })}
+        })} */}
+
+        {weatherCodes.map(
+          (code) =>
+            code.code === weather.weather[0].main && (
+              <Image
+                key={code.code}
+                boxSize='150px'
+                src={code.imgSrc}
+                alt={`${code.code} weather`}
+              />
+            )
+        )}
       </Flex>
 
       {/* DEGREES OF WEATHER */}

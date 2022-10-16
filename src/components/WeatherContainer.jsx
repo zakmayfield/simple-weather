@@ -50,7 +50,6 @@ const WeatherContainer = () => {
       })
       .then((data) => {
         if (data.results[0].formatted !== 'Null Island') {
-          console.log('data->', data);
           if (!address) {
             setGeoLocateAddress(data.results[0].formatted);
           }
