@@ -40,6 +40,7 @@ const WeatherContainer = () => {
 
   useEffect(() => {
     callOpenCage(coordinates.lat, coordinates.lng);
+    // eslint-disable-next-line
   }, [coordinates]);
 
   const callOpenCage = (lat, lon) => {
