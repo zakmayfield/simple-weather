@@ -1,4 +1,4 @@
-import { Flex, Box, Heading, Icon, Button } from '@chakra-ui/react';
+import { Flex, Box, Heading, Icon, Button, Text } from '@chakra-ui/react';
 import { FaArrowLeft, FaCloudSun } from 'react-icons/fa';
 
 const Header = ({
@@ -45,7 +45,21 @@ const Header = ({
 
       <Box flex='1'>
         <Button onClick={() => setTempType(!tempType)} variant='unstyled'>
-          {tempType ? 'C°' : 'F°'}
+          {tempType ? (
+            <span>
+              <Text as='b' mr='1' fontSize='xl'>
+                °C
+              </Text>
+              <Text as='sub'>°F</Text>
+            </span>
+          ) : (
+            <span>
+              <Text as='b' mr='1' fontSize='xl'>
+                °F
+              </Text>
+              <Text as='sub'>°C</Text>
+            </span>
+          )}
         </Button>
       </Box>
     </Flex>
