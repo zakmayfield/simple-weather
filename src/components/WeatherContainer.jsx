@@ -63,7 +63,7 @@ const WeatherContainer = () => {
 
   return (
     <Flex
-      w={{ base: '400px' }}
+      w={{ base: '350px' }}
       h={isExpanded && currentWeatherData ? '500px' : '300px'}
       my='5'
       borderRadius='10px'
