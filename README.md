@@ -17,6 +17,8 @@
 
 ## API
 
+- `OpenWeather API`
+
 - `Google Places API` \* consumed by the `react-places-autocomplete` library
 
 - Native `GeoLocation API`
