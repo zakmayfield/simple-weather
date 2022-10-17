@@ -6,6 +6,14 @@ import Header from './Header';
 import axios from 'axios';
 import opencage from 'opencage-api-client';
 
+
+
+
+// Change the restrictions of the API key on Places API to hit the endpoint on localhost 
+
+
+
+
 const WeatherContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
